@@ -95,7 +95,6 @@ void cale(Node* lhs, Node* rhs, Node* sum, char op)
             rhs->Length = lhs->Length;
             rhs->First = MAX - rhs->Length + 1;
         }
-        //
         for (int i = 0; i <= gap; i++)
         {
             for (int i = sum->First; i < MAX; i++)
@@ -138,9 +137,7 @@ int main()
             lhs = &input1, rhs = &input2, nag = 0;
         else
             lhs = &input2, rhs = &input1, nag = 1;
-        //
         cale(lhs, rhs, &sum, op);
-        //
         while (sum.String[sum.First] == 0)
             sum.First++;
         if (sum.First > MAX || (nag && op == '/'))
@@ -154,4 +151,5 @@ int main()
             puts(&sum.String[sum.First]);
         }
     }
+    return 0;
 }
