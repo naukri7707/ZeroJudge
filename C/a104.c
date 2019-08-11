@@ -14,7 +14,7 @@ int main()
         for (int i = 1; i < n; i++)
         {
             scanf(" %d", &list[i]);
-            for (int j = i; list[j] < list[j - 1] && j; j--)
+            for (int j = i; j && list[j] < list[j - 1]; j--)
                 SWAP(list[j], list[j - 1]);
         }
         for (int i = 0; i < n; i++)
