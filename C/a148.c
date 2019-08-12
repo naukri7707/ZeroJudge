@@ -1,8 +1,9 @@
 ﻿#include<stdio.h>
 
+int n, m, sum;
+
 int main()
 {
-    int n, m, sum;
     while (scanf(" %d", &n) == 1)
     {
         sum = 0;
