@@ -47,7 +47,6 @@ int main()
     int n, ans;
     while (scanf(" %d", &n) == 1)
     {
-
         if (isPrime(n))
             printf("%d\n", n);
         else
