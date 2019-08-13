@@ -15,7 +15,7 @@ int main()
             gap += gap < 0 ? -EPS : EPS;
             if (gap < EPS2 && gap > -EPS2)
                 gap = 0;
-            printf("%.2lf%% %s\n", gap, gap<10 && gap > -7 ? "keep" : "dispose");
+            printf("%.2lf%% %s\n", gap, gap < 10 && gap > -7 ? "keep" : "dispose");
         }
     }
     return 0;
