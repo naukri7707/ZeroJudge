@@ -9,7 +9,6 @@ typedef struct Hash
 }Hash;
 
 Hash HashTable[1024];
-
 unsigned int list[5];
 int n;
 
