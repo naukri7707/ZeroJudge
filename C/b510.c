@@ -1,7 +1,6 @@
 ﻿#include <stdio.h>
 
-int max, count;
-int table[11][11];
+int max, count, table[11][11];
 
 void dfs(int i, int m, int n)
 {
