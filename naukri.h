@@ -9,9 +9,10 @@
 // 1 = 不進行比較
 // 2 = 使用 compare.txt 儲存的答案比較
 // 3 = 使用 compare.c   計算的答案比較 (只有在 input 是檔案時才能執行)
+// 4 = 自動判斷，fileIn 沒被使用過 = 3 使用過 = 2 
 // 一一一一一一一一一一一一一一一一一一一
 // main() 的 return 也可以進行選擇，且若非隨意會優先使用 return 的定義。
-#define CMPMODE 2
+#define CMPMODE 4
 #endif
 
 // IO Mode
