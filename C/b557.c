@@ -4,7 +4,7 @@
 int main()
 {
     int kase, n, tmp, p2List[110], count;
-    for (int i = 2; i <= MAX; i++)
+    for (int i = 1; i <= MAX; i++)
         p2List[i] = i * i;
     scanf(" %d", &kase);
     while (kase--)
