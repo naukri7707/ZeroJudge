@@ -26,7 +26,7 @@ static char* tolerantify(char dst[], FILE * src)
 
 void __comparison_Cmp_(Evaluation e_main)
 {
-    fseek(fileOut, 0, SEEK_SET), fseek(fileCmp, 0, SEEK_SET);;
+    fseek(fileOut, 0, SEEK_SET), fseek(fileCmp, 0, SEEK_SET);
     int line = 0, wa = 0;
     char srcBuf[BUFSIZ], cmpBuf[BUFSIZ], * fmtSrc, * fmtCmp;
     for (;;)
