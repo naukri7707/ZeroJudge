@@ -2,7 +2,8 @@
 # Git 
 !.gitignore
 !README.md
-
+!naukri.h
 # Code Folder
 !/C
 !/Python
+!/naukri
