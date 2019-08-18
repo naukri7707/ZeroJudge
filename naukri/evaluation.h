@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #ifndef INC_EVALUATION
 #define INC_EVALUATION
 

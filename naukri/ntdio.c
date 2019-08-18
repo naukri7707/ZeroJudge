@@ -1,4 +1,4 @@
-#include <stdio.h>
+﻿#include <stdio.h>
 #include <naukri/ntdio.h>
 
 FILE* files[4];

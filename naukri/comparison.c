@@ -1,4 +1,4 @@
-#include <naukri/comparison.h>
+ï»¿#include <naukri/comparison.h>
 #include <naukri/debug.h>
 #include <stdio.h>
 #include <string.h>
@@ -36,18 +36,18 @@ void __comparison_Cmp_(Evaluation e_main)
         if (fmtSrc == NULL || fmtCmp == NULL)
             break;
         if (strcmp(fmtSrc, fmtCmp))
-            Debug.Log("WA (line:%d)\n±zªºµª®×¬°: %s\n¥¿½Tµª®×¬°: %s", line, fmtSrc, fmtCmp), ++wa;
+            Debug.Log("WA (line:%d)\næ‚¨çš„ç­”æ¡ˆç‚º: %s\næ­£ç¢ºç­”æ¡ˆç‚º: %s", line, fmtSrc, fmtCmp), ++wa;
     }
     if (fmtCmp != NULL && fmtCmp[0] == '\n')
         fmtCmp = tolerantify(cmpBuf, fileCmp);
     if (fmtSrc != NULL && fmtSrc[0] == '\n')
         fmtSrc = tolerantify(srcBuf, fileOut);
     if (fmtCmp != NULL)
-        Debug.Log("WA (line:%d)\n¿é¥XÀÉ¹L¤p¡A±z¦@¿é¥X %d ¦æ", line, line - 1);
+        Debug.Log("WA (line:%d)\nè¼¸å‡ºæª”éŽå°ï¼Œæ‚¨å…±è¼¸å‡º %d è¡Œ", line, line - 1);
     else if (fmtSrc != NULL)
-        Debug.Log("OLE (%s)\n½Ð¤Å¿é¥XÃD¥Ø¥¼­n¨Dªº¤å¦r:\n%s", __evaluation_Log_(e_main), fmtSrc);
+        Debug.Log("OLE (%s)\nè«‹å‹¿è¼¸å‡ºé¡Œç›®æœªè¦æ±‚çš„æ–‡å­—:\n%s", __evaluation_Log_(e_main), fmtSrc);
     else if (wa)
-        Debug.Log("WA (%s)\n±z¦@¦³ %d ­Ó¿ù»~", __evaluation_Log_(e_main), wa);
+        Debug.Log("WA (%s)\næ‚¨å…±æœ‰ %d å€‹éŒ¯èª¤", __evaluation_Log_(e_main), wa);
     else if (e_main.Time > TLE)
         Debug.Log("TLE (%s)", __evaluation_Log_(e_main));
     else

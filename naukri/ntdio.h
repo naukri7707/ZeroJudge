@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #ifndef INC_NTDIO
 #define INC_NTDIO
 
@@ -26,63 +26,65 @@
 #define fileErr (__ncrt_iob_func(2))
 #define fileCmp (__ncrt_iob_func(3))
 
-#if defined(F_C) // ÀÉ®× => ¤ñ¸û
-#define scanf(_Format, ...) fscanf(fileIn, _Format, __VA_ARGS__)
-#define gets(_Buffer) fgets(_Buffer, sizeof(_Buffer), fileIn)
-#define getchar() fgetc(fileIn)
-#define printf(_Format, ...) fprintf(fileCmp, _Format, __VA_ARGS__)
-#define puts(_Buffer) fputs(_Buffer, fileCmp), fputc('\n', fileCmp)
-#define putchar(_Character) fputc(_Character, fileCmp)
-#elif defined(F_TC) // ÀÉ®× => ²×ºİ+¤ñ¸û
-#define scanf(_Format, ...) fscanf(fileIn, _Format, __VA_ARGS__)
-#define gets(_Buffer) fgets(_Buffer, sizeof(_Buffer), fileIn)
-#define getchar() fgetc(fileIn)
-#define printf(_Format, ...) fprintf(termOut, _Format, __VA_ARGS__), fprintf(fileCmp, _Format, __VA_ARGS__)
-#define puts(_Buffer) fputs(_Buffer, termOut), fputc('\n', termOut), fputs(_Buffer, fileCmp), fputc('\n', fileCmp)
-#define putchar(_Character) fputc(_Character, termOut), fputc(_Character, fileCmp)
-#elif defined(T_T) // ²×ºİ => ²×ºİ
-#define scanf(_Format, ...) fscanf(termIn, _Format, __VA_ARGS__)
-#define gets(_Buffer) fgets(_Buffer, sizeof(_Buffer), termIn)
-#define getchar() fgetc(termIn)
-#define printf(_Format, ...) fprintf(termOut, _Format, __VA_ARGS__)
-#define puts(_Buffer) fputs(_Buffer, termOut), fputc('\n', termOut)
-#define putchar(_Character) fputc(_Character, termOut)
-#elif defined(T_F) // ²×ºİ => ÀÉ®×
-#define scanf(_Format, ...) fscanf(termIn, _Format, __VA_ARGS__)
-#define gets(_Buffer) fgets(_Buffer, sizeof(_Buffer), termIn)
-#define getchar() fgetc(termIn)
-#define printf(_Format, ...) fprintf(fileOut, _Format, __VA_ARGS__)
-#define puts(_Buffer) fputs(_Buffer, fileOut), fputc('\n', fileOut)
-#define putchar(_Character) fputc(_Character, fileOut)
-#elif defined(T_TF) // ²×ºİ => ²×ºİ+ÀÉ®×
-#define scanf(_Format, ...) fscanf(termIn, _Format, __VA_ARGS__)
-#define gets(_Buffer) fgets(_Buffer, sizeof(_Buffer), termIn)
-#define getchar() fgetc(termIn)
-#define printf(_Format, ...) fprintf(termOut, _Format, __VA_ARGS__), fprintf(fileOut, _Format, __VA_ARGS__)
-#define puts(_Buffer) fputs(_Buffer, termOut), fputc('\n', termOut), fputs(_Buffer, fileOut), fputc('\n', fileOut)
-#define putchar(_Character) fputc(_Character, termOut), fputc(_Character, fileOut)
-#elif defined(F_T) // ÀÉ®× => ²×ºİ
-#define scanf(_Format, ...) fscanf(fileIn, _Format, __VA_ARGS__)
-#define gets(_Buffer) fgets(_Buffer, sizeof(_Buffer), fileIn)
-#define getchar() fgetc(fileIn)
-#define printf(_Format, ...) fprintf(termOut, _Format, __VA_ARGS__)
-#define puts(_Buffer) fputs(_Buffer, termOut), fputc('\n', termOut)
-#define putchar(_Character) fputc(_Character, termOut)
-#elif defined(F_F) // ÀÉ®× => ÀÉ®×
-#define scanf(_Format, ...) fscanf(fileIn, _Format, __VA_ARGS__)
-#define gets(_Buffer) fgets(_Buffer, sizeof(_Buffer), fileIn)
-#define getchar() fgetc(fileIn)
-#define printf(_Format, ...) fprintf(fileOut, _Format, __VA_ARGS__)
-#define puts(_Buffer) fputs(_Buffer, fileOut), fputc('\n', fileOut)
-#define putchar(_Character) fputc(_Character, fileOut)
-#elif defined(F_TF) // ÀÉ®× => ²×ºİ+ÀÉ®×
-#define scanf(_Format, ...) fscanf(fileIn, _Format, __VA_ARGS__)
-#define gets(_Buffer) fgets(_Buffer, sizeof(_Buffer), fileIn)
-#define getchar() fgetc(fileIn)
-#define printf(_Format, ...) fprintf(termOut, _Format, __VA_ARGS__), fprintf(fileOut, _Format, __VA_ARGS__)
-#define puts(_Buffer) fputs(_Buffer, termOut), fputc('\n', termOut), fputs(_Buffer, fileOut), fputc('\n', fileOut)
-#define putchar(_Character) fputc(_Character, termOut), fputc(_Character, fileOut)
-#else  // ¤£¥]¸Ë 
+int __ntdres_;
+
+#if defined(F_C) // æª”æ¡ˆ => æ¯”è¼ƒ
+#define scanf(_Format, ...) (__ntdres_ = fscanf(fileIn, _Format, __VA_ARGS__))
+#define gets(_Buffer) (fgets(_Buffer, sizeof(_Buffer), fileIn))
+#define getchar() (fgetc(fileIn))
+#define printf(_Format, ...) (__ntdres_ = fprintf(fileCmp, _Format, __VA_ARGS__))
+#define puts(_Buffer) (fputs(_Buffer, fileCmp), fputc('\n', fileCmp))
+#define putchar(_Character) (fputc(_Character, fileCmp))
+#elif defined(F_TC) // æª”æ¡ˆ => çµ‚ç«¯+æ¯”è¼ƒ
+#define scanf(_Format, ...) (__ntdres_ = fscanf(fileIn, _Format, __VA_ARGS__))
+#define gets(_Buffer) (fgets(_Buffer, sizeof(_Buffer), fileIn))
+#define getchar() (fgetc(fileIn))
+#define printf(_Format, ...) (fprintf(termOut, _Format, __VA_ARGS__), fprintf(fileCmp, _Format, __VA_ARGS__))
+#define puts(_Buffer) (fputs(_Buffer, termOut), fputc('\n', termOut), fputs(_Buffer, fileCmp), fputc('\n', fileCmp))
+#define putchar(_Character) (fputc(_Character, termOut), fputc(_Character, fileCmp))
+#elif defined(T_T) // çµ‚ç«¯ => çµ‚ç«¯
+#define scanf(_Format, ...) (__ntdres_ = fscanf(termIn, _Format, __VA_ARGS__))
+#define gets(_Buffer) (fgets(_Buffer, sizeof(_Buffer), termIn))
+#define getchar() (fgetc(termIn))
+#define printf(_Format, ...) (fprintf(termOut, _Format, __VA_ARGS__))
+#define puts(_Buffer) (fputs(_Buffer, termOut), fputc('\n', termOut))
+#define putchar(_Character) fputc(_Character, termOut))
+#elif defined(T_F) // çµ‚ç«¯ => æª”æ¡ˆ
+#define scanf(_Format, ...) (__ntdres_ = fscanf(termIn, _Format, __VA_ARGS__))
+#define gets(_Buffer) (fgets(_Buffer, sizeof(_Buffer), termIn))
+#define getchar() (fgetc(termIn))
+#define printf(_Format, ...) (fprintf(fileOut, _Format, __VA_ARGS__))
+#define puts(_Buffer) (fputs(_Buffer, fileOut), fputc('\n', fileOut))
+#define putchar(_Character) (fputc(_Character, fileOut))
+#elif defined(T_TF) // çµ‚ç«¯ => çµ‚ç«¯+æª”æ¡ˆ
+#define scanf(_Format, ...) (__ntdres_ = fscanf(termIn, _Format, __VA_ARGS__))
+#define gets(_Buffer) (fgets(_Buffer, sizeof(_Buffer), termIn))
+#define getchar() (fgetc(termIn))
+#define printf(_Format, ...) (fprintf(termOut, _Format, __VA_ARGS__), fprintf(fileOut, _Format, __VA_ARGS__))
+#define puts(_Buffer) (fputs(_Buffer, termOut), fputc('\n', termOut), fputs(_Buffer, fileOut), fputc('\n', fileOut))
+#define putchar(_Character) (fputc(_Character, termOut), fputc(_Character, fileOut))
+#elif defined(F_T) // æª”æ¡ˆ => çµ‚ç«¯
+#define scanf(_Format, ...) (__ntdres_ = fscanf(fileIn, _Format, __VA_ARGS__))
+#define gets(_Buffer) (fgets(_Buffer, sizeof(_Buffer), fileIn))
+#define getchar() (fgetc(fileIn))
+#define printf(_Format, ...) (fprintf(termOut, _Format, __VA_ARGS__))
+#define puts(_Buffer) (fputs(_Buffer, termOut), fputc('\n', termOut))
+#define putchar(_Character) fputc(_Character, termOut))
+#elif defined(F_F) // æª”æ¡ˆ => æª”æ¡ˆ
+#define scanf(_Format, ...) ((__ntdres_ = fscanf(fileIn, _Format, __VA_ARGS__))
+#define gets(_Buffer) (fgets(_Buffer, sizeof(_Buffer), fileIn))
+#define getchar() (fgetc(fileIn))
+#define printf(_Format, ...) (fprintf(fileOut, _Format, __VA_ARGS__))
+#define puts(_Buffer) (fputs(_Buffer, fileOut), fputc('\n', fileOut))
+#define putchar(_Character) (fputc(_Character, fileOut))
+#elif defined(F_TF) // æª”æ¡ˆ => çµ‚ç«¯+æª”æ¡ˆ
+#define scanf(_Format, ...) (__ntdres_ = fscanf(fileIn, _Format, __VA_ARGS__))
+#define gets(_Buffer) (fgets(_Buffer, sizeof(_Buffer), fileIn))
+#define getchar() (fgetc(fileIn))
+#define printf(_Format, ...) (fprintf(termOut, _Format, __VA_ARGS__), fprintf(fileOut, _Format, __VA_ARGS__))
+#define puts(_Buffer) (fputs(_Buffer, termOut), fputc('\n', termOut), fputs(_Buffer, fileOut), fputc('\n', fileOut))
+#define putchar(_Character) (fputc(_Character, termOut), fputc(_Character, fileOut))
+#else  // ä¸åŒ…è£ 
 #endif
 
 FILE* __cdecl __ncrt_iob_func(

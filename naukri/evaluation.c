@@ -1,4 +1,4 @@
-#include <naukri/evaluation.h>
+ï»¿#include <naukri/evaluation.h>
 #include <Windows.h>
 #include <Psapi.h>
 #include <stdio.h>
@@ -36,8 +36,8 @@ Evaluation __new_Evaluation_(int (*func)())
     Evaluation res;
     res.Memory = getPeakWorkingSetSize();
     LARGE_INTEGER freq, beginTime, endTime;
-    QueryPerformanceFrequency(&freq); // Àò¨ú®ÉÄÁ¶g´Á
-    QueryPerformanceCounter(&beginTime); // Àò¨ú®ÉÄÁ­p¼Æ
+    QueryPerformanceFrequency(&freq); // ç²å–æ™‚é˜é€±æœŸ
+    QueryPerformanceCounter(&beginTime); // ç²å–æ™‚é˜è¨ˆæ•¸
     res.Result = func();
     QueryPerformanceCounter(&endTime);
     res.Time = (endTime.QuadPart - beginTime.QuadPart) * 1000 / freq.QuadPart;
