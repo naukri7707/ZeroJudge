@@ -1,6 +1,7 @@
-﻿#include <naukri\debug.h>
-#include <stdio.h>
+﻿#include <stdio.h>
 #include <string.h>
+#include <naukri.h>
+#include <naukri\debug.h>
 #define BUFSIZ 1024
 
 __debug_ Debug;
@@ -8,20 +9,12 @@ __debug_ Debug;
 static void print(const char* _Format, ...)
 {
     int j = 0;
-    char src[BUFSIZ], dst[BUFSIZ] = { 0 };
+    char src[BUFSIZ];
     va_list _ArgList;
     __crt_va_start(_ArgList, _Format);
     vsprintf(src, _Format, _ArgList);
     __crt_va_end(_ArgList);
-    for (int i = 0; src[i]; i++)
-        dst[j++] = src[i];
-    if (j > 0)
-    {
-        do {
-            j--;
-        } while ((dst[j] == '>' || dst[j] == '\n') && j > 0);
-    }
-    fputs(dst, termOut);
+    fputs(src, termOut);
 }
 
 static void log(const char* _Format, ...)

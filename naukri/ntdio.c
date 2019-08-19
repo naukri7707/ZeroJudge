@@ -1,9 +1,10 @@
 ﻿#include <stdio.h>
+#include <naukri.h>
 #include <naukri/ntdio.h>
 
-FILE* files[4];
-const char filesMode[][3] = { "r", "w+", "w", "w+" };
-const char filesName[][15] = { FILE_INPUT, FILE_OUTPUT, FILE_ERROR, FILE_COMPARE };
+FILE* files[3];
+const char filesMode[][3] = { "r", "w+", "w+" };
+const char filesName[][20] = { FILE_INPUT, FILE_OUTPUT, FILE_COMPARE };
 
 FILE* __cdecl __ncrt_iob_func(unsigned _Ix)
 {

@@ -1,7 +1,9 @@
-﻿#include <naukri/comparison.h>
-#include <naukri/debug.h>
+﻿#define NO_WRAPPER
 #include <stdio.h>
 #include <string.h>
+#include <naukri.h>
+#include <naukri/comparison.h>
+#include <naukri/debug.h>
 
 #define TLE 1000
 

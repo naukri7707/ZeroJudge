@@ -16,11 +16,11 @@
 #endif
 
 // IO Mode
-#if !(defined(F_C) || defined(F_TC) || defined(T_T)  || defined(T_F)  || defined(T_TF) || defined(F_T) || defined(F_F) || defined(F_TF))
+#if !(defined(NO_WRAPPER) || defined(F_C) || defined(F_TC) || defined(T_T)  || defined(T_F)  || defined(T_TF) || defined(F_T) || defined(F_F) || defined(F_TF))
 // 輸入 => 輸出
 // T = 終端機 (Terminal)
-// F = 檔案 (File: output.txt)
-// C = 比對檔案 (File: compare.txt)
+// F = 檔案 (File: userOutput.txt)
+// C = 比對檔案 (File: systemOutput.txt)
 // 若有多重輸出則以 T > F or C 為順序排列
 #define F_TF
 #endif
@@ -29,7 +29,7 @@
 
 #ifndef main
 // Main Wrapper
-#define main _entry
+#define main __main_
 #endif // !main
 
 int main(
