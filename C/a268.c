@@ -41,7 +41,7 @@ int main()
                 curr = 6 - curr - end[i];
                 steps = (steps + step[i - 1]) % MOD;
             }
-            printf("%d\n", steps % MOD);
+            printf("%d\n", steps);
         }
         else
         {
