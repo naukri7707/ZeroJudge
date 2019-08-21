@@ -20,9 +20,12 @@ int main()
             }
             candy += kakuna;
             kakuna = 0;
-            if (candy < 12 && weedle)
-                candy++, weedle--;
-        } while (weedle);
+            if (candy < 12)
+            {
+                weedle -= 12 - candy;
+                candy = 12;
+            }
+        } while (weedle > 0);
         printf("%d\n", count);
     }
     return 0;
