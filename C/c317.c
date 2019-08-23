@@ -1,5 +1,4 @@
 ﻿#include <stdio.h>
-#define SWAP(x, y) (x)^=((y)^=((x)^=(y)))
 
 int main()
 {
@@ -9,8 +8,6 @@ int main()
         while (n--)
         {
             scanf(" %d %d %d", &target, &coin1, &coin2);
-            if (coin1 < coin2)
-                SWAP(coin1, coin2);
             i = target / coin1, count = -1;
             sum = coin1 * (i + 1);
             for (; i >= 0; i--)
