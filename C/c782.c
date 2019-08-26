@@ -1,4 +1,5 @@
-﻿#include <stdio.h>
+﻿#pragma GCC optimize(3)
+#include <stdio.h>
 #define MAX 2000010
 #define BUFMAX 1048576
 
