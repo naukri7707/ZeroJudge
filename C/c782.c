@@ -27,7 +27,6 @@ inline void freadUInt(int* val)
     *val = tmp - '0';
     while ((tmp = freadChar()) >= '0')
         * val = (*val << 3) + (*val << 1) + (tmp - '0');
-    return;
 }
 
 inline void freadLongLong(long long* val)
