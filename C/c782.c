@@ -13,7 +13,7 @@ inline char freadChar()
     {
         if (length < BUFMAX)
             return EOF;
-        length = fread(buf, 1, BUFMAX, fileIn);
+        length = fread(buf, 1, BUFMAX, stdin);
         end = buf + length;
         pt = buf;
     }
