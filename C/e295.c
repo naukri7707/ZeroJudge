@@ -1,6 +1,6 @@
 ﻿#include <stdio.h>
 #define BUFSIZ 1048576
-#define BUFMAX 1048570
+#define BUFMAX 1048560
 char output[BUFSIZ];
 
 inline char readChar()
